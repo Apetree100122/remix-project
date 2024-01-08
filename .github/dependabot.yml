@@ -1,0 +1,107 @@
+# @Apetree100122 2024/01/07 (c) AGPL 2.0
+# To get started with Dependabot version updates, you'll need to specify which # package ecosystems to update and where the package manifests are located. # Please see the documentation for all configuration options: # https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+version: 3
+update_configs:
+  - package_manager: "javascript"
+  - directory: "/"
+    update_schedule: "as needed"
+    updates:
+      - dependencies:  "rspec*" 
+      updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+"update_schedule": "as needed"
+    groups:
+      angular:
+        patterns:
+        - "@angular"
+        - "@type_script"
+        - "@javascript"
+        - "@solidarity"
+        - "@json"
+        update-types:
+        - "minor"
+        - "patch"
+        -  "major" 
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+updates:
+  - package-ecosystem: "type_script"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      version: 2
+updates:
+  - package-ecosystem: "php"
+    directory: "/"
+    schedule:
+      interval: "daily"
+updates:
+- package-ecosystem: "solidarity"
+   directory: "/"
+   schedule: 
+   interval : "daily"
+package-ecosystem: "bundler"
+directory: "/"
+schedule:
+interval: "weekly"
+name: "CI'
+on:
+pull_request:
+push:
+branches:   ["main"] , ["master"] , ["scope"]
+jobs:
+  lint:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node_version: [16]
+      fail-fast: false
+    name: "Lint: node-${{ matrix.node_version }}, ${{ matrix.os }}"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set node version to ${{ matrix.node_version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node_version }}
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install
+      - name: Lint js
+        run: yarn lint
+      - name: Lint typescript definitions
+        run: yarn lint:ts
+      - name: Check prettier
+        run: yarn prettier:check
+package-ecosystem: "bundler"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node_version: [10, 12, 14, 16]
+        include:
+          - os: macos-latest
+            node_version: 14
+      fail-fast: false
+    name: "Build&Test: node-${{ matrix.node_version }}, ${{ matrix.os }}"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set node version to ${{ matrix.node_version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node_version }}
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install
+      - name: Run tests
+        run: yarn test
