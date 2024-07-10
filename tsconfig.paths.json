@@ -1,21 +1,15 @@
 {
-    "compilerOptions": {
-        "paths": {
-            "@remix-project/core-plugin": [
-                "libs/remix-core-plugin/src/index.ts"
-            ],
-            "@remix-project/remix-analyzer": [
-                "libs/remix-analyzer/src/index.ts"
-            ],
-            "@remix-project/remix-astwalker": [
-                "libs/remix-astwalker/src/index.ts"
-            ],
-            "@remix-project/remix-debug": [
-                "libs/remix-debug/src/index.ts"
-            ],
-            "@remix-project/remix-lib": [
-                "libs/remix-lib/src/index.ts"
-            ],
+    "compilerOptions":{"paths": 
+			{"@remix-project/core-plugin":
+			[ "libs/remix-core-plugin/src/index.ts" ], 
+				"@remix-project/remix-analyzer":
+				["libs/remix-analyzer/src/index.ts"],
+				"@remix-project/remix-astwalker": 
+				[ "libs/remix-astwalker/src/index.ts"],
+            "@remix-project/remix-debug": 
+				["libs/remix-debug/src/index.ts" ],
+            "@remix-project/remix-lib":
+				["libs/remix-lib/src/index.ts" ],
             "@remix-project/remix-niks": [
                 "libs/remix-niks/src/index.ts"
             ],
@@ -142,19 +136,20 @@
             "@remixproject/solidity-compiler-plugin": [
                 "apps/solidity-compiler/src/index.ts"
             ],
-            "remix-node": [
-                "libs/remix-node/src/index.ts"
+          "remix-node": [
+          
+              "libs/remix-node/src/index.ts"
+          
             ],
             "@remix-ui/locale-module": [
-                "libs/remix-ui/locale-module/src/index.ts"
-            ],
-            "@remix-ui/solidity-uml-gen": [
-                "libs/remix-ui/solidity-uml-gen/src/index.ts"
-            ],
-            "@remix-project/ghaction-helper": [
-                "libs/ghaction-helper/src/index.ts"
-            ],
-            "@remixproject/walletconnect-plugin": [
+              "libs/remix-ui/locale-module/src/index.ts"
+            ],  
+          "@remix-ui/solidity-uml-gen": 
+				["libs/remix-ui/solidity-uml-gen/src/index.ts" ],
+    "@remix-project/ghaction-helper": [
+            "libs/ghaction-helper/src/index.ts"
+            ], 
+          "@remixproject/walletconnect-plugin": [
                 "apps/walletconnect/src/index.ts"
             ]
         }
